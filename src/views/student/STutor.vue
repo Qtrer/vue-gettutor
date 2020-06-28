@@ -51,8 +51,8 @@
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
-                        v-model="editedItem.lowestMark"
-                        label="LowestMark"
+                        v-model="editedItem.lowestScore"
+                        label="LowestScore"
                       ></v-text-field>
                     </v-col>
                   </v-row>
@@ -61,8 +61,8 @@
 
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-                <v-btn color="blue darken-1" text @click="save">Save</v-btn>
+                <v-btn color="grey darken-1" text @click="close">Cancel</v-btn>
+                <v-btn color="grey darken-1" text @click="save">Save</v-btn>
               </v-card-actions>
             </v-card>
           </v-dialog>
@@ -73,9 +73,6 @@
         <v-icon disabled="" small class="mr-2" @click="editItem(item)">
           mdi-pencil
         </v-icon>
-        <!-- <v-icon small @click="deleteItem(item)">
-          mdi-delete
-        </v-icon> -->
       </template>
 
       <template v-slot:no-data>
@@ -110,12 +107,12 @@ export default {
     editedItem: {
       name: "",
       weight: 0.5,
-      lowestMark: 60
+      lowestScore: 60
     },
     defaultItem: {
       name: "",
       weight: 0.5,
-      lowestMark: 60
+      lowestScore: 60
     }
   }),
 

@@ -12,9 +12,9 @@
               display="false"
               type="file"
               @change="readFile"
-              accept=".xls,.xlsx"
+              accept=".xls, .xlsx"
             />
-            Import the transcript.
+            IMPORT
           </label>
         </form>
       </v-card-actions>
@@ -22,18 +22,8 @@
 
     <v-divider></v-divider>
     <template v-if="studentsEle">
-      <v-btn
-        block
-        x-large
-        outlined
-        color="grey"
-        dark
-        class="mb-2"
-        @click="submit"
-      >
-        Submit The Transcript
-        <v-card-text>{{ course }}</v-card-text>
-      </v-btn>
+      <v-card-text>course: {{ course }}</v-card-text>
+      <v-btn color="grey" dark class="mb-2" @click="submit">SUBMIT</v-btn>
 
       <v-simple-table>
         <template v-slot:default>
@@ -121,12 +111,8 @@
         </v-toolbar>
       </template>
       <template v-slot:item.actions="{ item }">
-        <v-icon small class="mr-2" @click="editItem(item)">
-          mdi-pencil
-        </v-icon>
-        <v-icon small @click="deleteItem(item)">
-          mdi-delete
-        </v-icon>
+        <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
+        <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
       </template>
       <template v-slot:no-data>
         <v-btn color="grey" dark @click="initialize">Reset</v-btn>

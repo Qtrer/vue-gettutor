@@ -43,8 +43,8 @@ const myMutations = {
   [types.LIST_RANKING_STUDENTS_TUTOR](state, data) {
     state.rankStudents = data;
   },
-  [types.GET_TUTOR](state, date) {
-    state.tutor = date;
+  [types.GET_TUTOR](state, data) {
+    state.tutor = data;
   },
   [types.GET_MYSTUDENTS_TUTOR](state, data) {
     state.myStudents = data;
@@ -65,7 +65,7 @@ const myMutations = {
     state.tutors = data;
   },
   [types.GET_TUTORDETAIL_STUDENT](state, data) {
-    state.courseGradeVOSDe = data.courseGradeVOS;
+    state.courseScoreVOSDe = data.courseScoreVOS;
     state.studentsDe = data.students;
     state.qualified = data.qualified;
     state.myTutor = data.tutor;

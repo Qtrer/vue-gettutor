@@ -6,22 +6,11 @@
           <v-card class="mx-auto" outlined>
             <v-list-item three-line>
               <v-list-item-content>
-                <div class="overline mb-4">INFORMATION</div>
+                <div class="overline mb-4">Welcome</div>
                 <v-list-item-title class="headline mb-1">
                   {{ this.tutor.user.name }}
                 </v-list-item-title>
-                <v-list-item-subtitle>
-                  Some of the basic information has been set to default, you can
-                  go to modify the data. e.g. the rangs , reservedRange, the
-                  weight and lowestMark of Course
-                </v-list-item-subtitle>
               </v-list-item-content>
-
-              <v-list-item-avatar
-                tile
-                size="80"
-                color="grey"
-              ></v-list-item-avatar>
             </v-list-item>
             <v-simple-table>
               <template v-slot:default>
@@ -48,38 +37,40 @@
               <v-row>
                 <v-col cols="12">
                   <v-subheader class="pl-0">
-                    The total number of students that can be instructed
+                    total number
                   </v-subheader>
                   <v-slider
                     max="30"
+                    color="grey"
                     v-model="tutor.totalNumber"
+                    :thumb-size="16"
                     thumb-label="always"
                   ></v-slider>
                 </v-col>
 
                 <v-col cols="12">
                   <v-subheader class="pl-0">
-                    Limit the number of students to be screened for rank
+                    reserved number
                   </v-subheader>
                   <v-slider
                     max="50"
+                    color="grey"
                     v-model="tutor.reservedRange"
-                    :thumb-size="24"
+                    :thumb-size="16"
                     thumb-label="always"
                   ></v-slider>
                 </v-col>
 
                 <v-col cols="12">
                   <v-subheader class="pl-0">
-                    The number of students who have been instructed has been
-                    determined
+                    instructed number
                   </v-subheader>
                   <v-slider
-                    color="#5482ba"
+                    color="grey"
                     :max="tutor.totalNumber"
                     readonly
                     v-model="tutor.instructedNumber"
-                    :thumb-size="24"
+                    :thumb-size="16"
                     thumb-label="always"
                   ></v-slider>
                 </v-col>

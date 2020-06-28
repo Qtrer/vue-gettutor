@@ -5,7 +5,7 @@
         You are qualified!
       </v-toolbar-title>
       <v-toolbar-title v-else>
-        Sorry, you don't meet the application criteria.
+        Sorry, you haven't qualified.
       </v-toolbar-title>
 
       <v-divider class="mx-4" inset vertical></v-divider>
@@ -13,50 +13,17 @@
       <v-btn
         class="ma-2"
         outlined
-        color="teal"
+        color="grey"
+        dark
         :to="`/studentApplication/${myTutor.id}`"
         v-if="qualified"
       >
         Apply
       </v-btn>
-      <v-btn text to="/studentTutor">
+      <v-btn color="grey" outlined text to="/studentTutor">
         Return
       </v-btn>
     </v-toolbar>
-
-    <v-simple-table v-if="!qualified">
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title>There may be several reasons：</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title>1. You already have mentors</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title>
-            2.The number of students the teacher can take has reached the limit
-          </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title>
-            3. The grade of the course you have chosen is not at the minimum
-          </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title>
-            4. Your overall ranking doesn't meet the requirements
-          </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-    </v-simple-table>
     <br />
     <br />
 
@@ -68,15 +35,15 @@
       <template v-slot:default>
         <thead>
           <tr>
-            <th class="text-left">Ranges</th>
-            <th class="text-left">Quantity</th>
+            <th class="text-left">totalNumber</th>
+            <th class="text-left">instructedNumber</th>
             <th class="text-left">State</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>{{ myTutor.ranges }}</td>
-            <td>{{ myTutor.quantity }}</td>
+            <td>{{ myTutor.totalNumber }}</td>
+            <td>{{ myTutor.instructedNumber }}</td>
             <td>{{ state(myTutor) }}</td>
           </tr>
         </tbody>
@@ -93,15 +60,15 @@
         <thead>
           <tr>
             <th class="text-left">Name</th>
-            <th class="text-left">lowestMark</th>
-            <th class="text-left">Your Grade</th>
+            <th class="text-left">lowestScore</th>
+            <th class="text-left">Your Score</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in courseGradeVOSDe" :key="item.name">
+          <tr v-for="item in courseScoreVOSDe" :key="item.name">
             <td>{{ item.course.name }}</td>
-            <td>{{ item.course.lowestMark }}</td>
-            <td>{{ grade(item.grade) }}</td>
+            <td>{{ item.course.lowestScore }}</td>
+            <td>{{ score(item.score) }}</td>
           </tr>
         </tbody>
       </template>
@@ -147,18 +114,19 @@ export default {
   },
   computed: {
     ...mapState([
-      "courseGradeVOSDe",
+      "courseScoreVOSDe",
       "studentsDe",
       "qualified",
       "myTutor",
       "student",
       "rankingIndex"
     ]),
-    grade() {
+    score() {
       return date => (date == 0 ? "none" : date);
     },
     state() {
-      return date => (date.quantity < date.ranges ? "可选" : "已满");
+      return date =>
+        date.instructedNumber < date.totalNumber ? "可选" : "已满";
     }
   }
 };
