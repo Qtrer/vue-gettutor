@@ -1,25 +1,37 @@
 <template>
   <div>
-    <v-card class="mx-auto" outlined>
-      <v-list-item three-line>
-        <v-list-item-content>
-          <div class="overline mb-4">Welcome</div>
-          <v-list-item-title class="headline mb-1">
-            {{ this.student.user.name }}
-          </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-card-text class="grey lighten-4">
-        <template v-if="student.tutor">
-          <h2>Your tutor : {{ student.tutor.user.name }}</h2>
-        </template>
-        <template v-else>
-          <h2>
-            You have not yet chosen a tutor, please choose ~ as soon as possible
-          </h2>
-        </template>
-      </v-card-text>
-    </v-card>
+    <v-row no-gutters>
+      <v-col cols="12" sm="8">
+        <v-card class="mx-auto" outlined>
+          <v-list-item three-line>
+            <v-list-item-content>
+              <div class="overline mb-4">Welcome</div>
+              <v-list-item-title class="headline mb-1">
+                {{ this.student.user.name }}
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-card>
+      </v-col>
+      <v-col cols="12" sm="4">
+        <v-card class="rightCard">
+          <v-list-item three-line>
+            <v-list-item-content v-if="student.tutor">
+              <div class="overline mb-4">Your tutor :</div>
+              <v-list-item-title class="headline mb-1">
+                {{ student.tutor.user.name }}
+              </v-list-item-title>
+            </v-list-item-content>
+            <v-list-item-content v-else>
+              <div class="overline mb-4">You have not yet chosen a tutor</div>
+              <v-list-item-title class="headline mb-1">
+                please choose ~ as soon as possible
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-card>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -35,3 +47,8 @@ export default {
   }
 };
 </script>
+<style scoped>
+.rightCard {
+  margin-left: 10px;
+}
+</style>

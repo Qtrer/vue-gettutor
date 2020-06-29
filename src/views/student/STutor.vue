@@ -69,10 +69,11 @@
         </v-toolbar>
       </template>
       <template v-slot:item.actions="{ item }">
-        <router-link :to="`/information/${item.id}`">Apply</router-link>
-        <v-icon disabled="" small class="mr-2" @click="editItem(item)">
-          mdi-pencil
-        </v-icon>
+        <router-link :to="`/information/${item.id}`" class="router">
+          <v-icon disabled="" small class="mr-2" @click="editItem(item)">
+            mdi-pencil
+          </v-icon></router-link
+        >
       </template>
 
       <template v-slot:no-data>
@@ -162,3 +163,8 @@ export default {
   }
 };
 </script>
+<style scoped>
+.router {
+  text-decoration: none;
+}
+</style>

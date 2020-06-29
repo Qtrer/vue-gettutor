@@ -15,7 +15,7 @@
     <v-stepper-items>
       <v-stepper-content step="1">
         <v-card class="mb-12" color="grey lighten-1" height="200px">
-          这里是选择方向的·····
+          Direction
         </v-card>
 
         <v-btn color="primary" @click="e1 = 2">
