@@ -1,26 +1,5 @@
 <template>
   <div>
-    <v-card class="d-flex flex-row-reverse">
-      <v-btn class="ma-2" outlined fab color="grey" @click="downloadTemplate">
-        <v-icon>mdi-format-list-bulleted-square</v-icon>
-      </v-btn>
-      <v-card-actions>
-        <form>
-          <label class="upload">
-            <input
-              class="file"
-              display="false"
-              type="file"
-              @change="readFile"
-              accept=".xls, .xlsx"
-            />
-            IMPORT
-          </label>
-        </form>
-      </v-card-actions>
-    </v-card>
-
-    <v-divider></v-divider>
     <template v-if="studentsEle">
       <v-card-text>course: {{ course }}</v-card-text>
       <v-btn color="grey" dark class="mb-2" @click="submit">SUBMIT</v-btn>
@@ -60,6 +39,19 @@
         <v-toolbar flat color="white">
           <v-toolbar-title>Score</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
+
+          <form>
+            <label class="upload">
+              <input
+                class="file"
+                display="false"
+                type="file"
+                @change="readFile"
+                accept=".xls, .xlsx"
+              />
+              IMPORT
+            </label>
+          </form>
           <v-spacer></v-spacer>
           <v-spacer>
             <v-text-field

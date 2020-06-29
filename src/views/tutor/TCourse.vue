@@ -39,7 +39,7 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         v-model="editedItem.name"
-                        label="ClassName"
+                        label="CourseName"
                       ></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
@@ -96,13 +96,13 @@ export default {
     dialog: false,
     headers: [
       {
-        text: "ClassName*",
+        text: "CourseName",
         align: "start",
         sortable: false,
         value: "name"
       },
-      { text: "Weight*", value: "weight" },
-      { text: "LowestScore*", value: "lowestScore" },
+      { text: "Weight", value: "weight" },
+      { text: "LowestScore", value: "lowestScore" },
       { text: "Actions", value: "actions", sortable: false }
     ],
     desserts: [],

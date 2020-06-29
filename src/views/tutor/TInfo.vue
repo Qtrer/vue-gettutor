@@ -34,47 +34,21 @@
         <v-col cols="12" sm="4">
           <v-card class="mx-auto" max-width="344" outlined>
             <v-container fluid>
-              <v-row>
-                <v-col cols="12">
-                  <v-subheader class="pl-0">
-                    total number
-                  </v-subheader>
-                  <v-slider
-                    max="30"
-                    color="grey"
-                    v-model="tutor.totalNumber"
-                    :thumb-size="16"
-                    thumb-label="always"
-                  ></v-slider>
-                </v-col>
-
-                <v-col cols="12">
-                  <v-subheader class="pl-0">
-                    reserved number
-                  </v-subheader>
-                  <v-slider
-                    max="50"
-                    color="grey"
-                    v-model="tutor.reservedRange"
-                    :thumb-size="16"
-                    thumb-label="always"
-                  ></v-slider>
-                </v-col>
-
-                <v-col cols="12">
-                  <v-subheader class="pl-0">
-                    instructed number
-                  </v-subheader>
-                  <v-slider
-                    color="grey"
-                    :max="tutor.totalNumber"
-                    readonly
-                    v-model="tutor.instructedNumber"
-                    :thumb-size="16"
-                    thumb-label="always"
-                  ></v-slider>
-                </v-col>
-              </v-row>
+              <v-text-field
+                v-model="tutor.totalNumber"
+                label="Please enter the total number"
+                required
+                @input="$v.totalNumber.$touch()"
+                @blur="$v.totalNumber.$touch()"
+              ></v-text-field>
+              <v-text-field
+                v-model="tutor.reservedRange"
+                label="Please enter the reserved number"
+                required
+                @input="$v.reservedRange.$touch()"
+                @blur="$v.reservedRange.$touch()"
+              ></v-text-field>
+              <v-text>instructed number: {{ tutor.instructedNumber }}</v-text>
             </v-container>
 
             <v-card-actions>
@@ -114,6 +88,7 @@ export default {
     return {
       totalNumber: 0,
       reservedRange: 0,
+      instructedNumber: 0,
       name: "",
       max: 30
     };
