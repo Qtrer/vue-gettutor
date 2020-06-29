@@ -23,7 +23,7 @@
               @blur="$v.password.$touch()"
             ></v-text-field>
             <v-spacer></v-spacer>
-            <v-btn class="mr-4" @click="login">submit</v-btn>
+            <v-btn class="mr-4" @click="login">login</v-btn>
           </form>
         </v-card-text>
       </v-card>
